@@ -1,0 +1,32 @@
+import os
+
+mode = 'train'
+train_dir = os.path.join(os.path.dirname(__file__), 'train')
+data_dir = os.path.join(os.path.dirname(__file__), 'data')
+data_sample_rate=16000
+data_slice_len=16384
+data_num_channels=1
+data_overlap_ratio=0.
+data_first_slice=False
+data_pad_end=False
+data_normalize=False
+data_fast_wav=False
+data_prefetch_gpu_num=-1
+wavegan_latent_dim=100
+wavegan_kernel_len=25
+wavegan_dim=64
+wavegan_batchnorm=False
+wavegan_disc_nupdates=5
+wavegan_loss='wgan-gp'
+wavegan_genr_upsample='zeros'
+wavegan_genr_pp=False
+wavegan_genr_pp_len=512
+wavegan_disc_phaseshuffle=2
+train_batch_size=64
+train_save_secs=300
+train_summary_secs=120
+preview_n=32
+incept_metagraph_fp='./eval/inception/infer.meta'
+incept_ckpt_fp='./eval/inception/best_acc-103005'
+incept_n=5000
+incept_k=10

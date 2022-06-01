@@ -7,7 +7,8 @@ if __name__ == '__main__':
   import sys
   import time
 
-  import tensorflow as tf
+  import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
   train_dir, nmin = sys.argv[1:3]
   nsec = int(float(nmin) * 60.)

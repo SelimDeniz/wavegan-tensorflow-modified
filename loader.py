@@ -1,7 +1,8 @@
 from scipy.io.wavfile import read as wavread
 import numpy as np
 
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 import sys
 
@@ -156,7 +157,14 @@ def decode_extract_and_batch(
       audio = audio[start:]
 
     # Extract sliceuences
-    audio_slices = tf.contrib.signal.frame(
+    '''audio_slices = tf.contrib.signal.frame(
+        audio,
+        slice_len,
+        slice_hop,
+        pad_end=slice_pad_end,
+        pad_value=0,
+        axis=0)'''
+    audio_slices = tf.signal.frame(
         audio,
         slice_len,
         slice_hop,

@@ -9,7 +9,8 @@ import os
 import time
 
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from six.moves import xrange
 
 import loader
@@ -310,7 +311,8 @@ def train(fps, args):
     'G_z_flat:0' float32 [None, 1]: Outputs flattened into single audio file
     'G_z_flat_int16:0' int16 [None, 1]: Same as above but quantized to 16-bit PCM samples
   Example usage:
-    import tensorflow as tf
+    import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
     tf.reset_default_graph()
 
     saver = tf.train.import_meta_graph('infer.meta')
